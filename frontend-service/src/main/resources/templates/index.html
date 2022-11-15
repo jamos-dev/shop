@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Shop</title>
+</head>
+<body>
+
+<div class="container">
+    <nav class="navbar navbar-dark bg-dark">
+        <h5 class="text-white h4">
+            <span class="p-4">Shop</span>
+        </h5>
+    </nav>
+    <table class="table table-striped table-hover table-bordered mt-4">
+        <thead>
+        <tr>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Price</td>
+            <!--        <td>Add To Cart</td>-->
+        </tr>
+        </thead>
+        <tr th:each="product:${products}">
+            <td th:text="${product.getName()}"></td>
+            <td th:text="${product.getDescription}"></td>
+            <td th:text="${product.getPrice()}"></td>
+            <!--        <td>-->
+            <!--            <form th:action="@{|/ShoppingCtrl/addtocart/${tempProduct.getProductId()}|}" method="post">-->
+            <!--                <button type="submit" class="btn btn-success">Add To Cart</button>-->
+            <!--            </form>-->
+            <!--        </td>-->
+        </tr>
+    </table>
+</div>
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>
